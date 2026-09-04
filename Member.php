@@ -1,0 +1,51 @@
+<?php
+
+class Member {
+    private string $name;
+    private int $idmember;
+    private array $borrowedBooks = [];
+
+    public function __construct(string $name, int $idmember) {
+        $this->name = $name;
+        $this->idmember = $idmember;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getIdMember() {
+        return $this->idmember;
+    }
+
+    public function pinjambuku(Book $book): bool {
+        if ($book->pinjambuku()) {
+            $this->borrowedBooks[] = $book;
+            return true;
+        }
+        return false;
+    }
+
+    public function getBorrowedBooks(): array {
+        return $this->borrowedBooks;
+    }
+    
+    public function getInfoMember(): string {
+        $borrowedBooksInfo = array_map(function($book) {
+            return $book->getinfobuku();
+        }, $this->borrowedBooks);
+
+        $borrowedBooksList = implode("\n", $borrowedBooksInfo);
+        return "Name: {$this->name}, ID Member: {$this->idmember}\nBorrowed Books:\n{$borrowedBooksList}";
+    }
+
+    public function returnBook(Book $book): bool {
+        $key = array_search($book, $this->borrowedBooks, true);
+        if ($key !== false) {
+            unset($this->borrowedBooks[$key]);
+            $book->returnBook();
+            return true;
+        }
+        return false;
+    }
+}
