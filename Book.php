@@ -4,7 +4,7 @@ class Book {
     private string $title;
     private string $author;
     private int $year;
-    private bool $isAvailable = true;
+    protected bool $isAvailable = true;
 
 
     public function __construct(string $title, string $author, int $year) {
