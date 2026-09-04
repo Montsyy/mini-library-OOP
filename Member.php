@@ -39,13 +39,4 @@ class Member {
         return "Name: {$this->name}, ID Member: {$this->idmember}\nBorrowed Books:\n{$borrowedBooksList}";
     }
 
-    public function returnBook(Book $book): bool {
-        $key = array_search($book, $this->borrowedBooks, true);
-        if ($key !== false) {
-            unset($this->borrowedBooks[$key]);
-            $book->returnBook();
-            return true;
-        }
-        return false;
-    }
 }
