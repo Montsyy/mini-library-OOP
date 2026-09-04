@@ -36,7 +36,7 @@ class Member {
         }, $this->borrowedBooks);
 
         $borrowedBooksList = implode("\n", $borrowedBooksInfo);
-        return "Name: {$this->name}, ID Member: {$this->idmember}\nBorrowed Books:\n{$borrowedBooksList}";
+        return "Name: {$this->name}\nID Member: {$this->idmember}\nBorrowed Books:\n{$borrowedBooksList}";
     }
 
 }
