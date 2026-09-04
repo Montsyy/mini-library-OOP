@@ -35,7 +35,6 @@ class Book {
 
     public function getinfobuku(): string {
         $status = $this->isAvailable ? 'Tersedia' : 'Tidak Tersedia';
-        return "Title: {$this->title}, Author: {$this->author}, Year: {$this->year}, Status: {$status}";
-
+        return "Title: {$this->title}\nAuthor: {$this->author}\nYear: {$this->year}\nStatus: {$status}";
     }
 }

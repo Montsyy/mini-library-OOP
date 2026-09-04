@@ -13,7 +13,6 @@ class digitalBook extends Book {
 
     public function getinfobuku(): string {
         $status = $this->isAvailable ? 'Tersedia' : 'Tidak Tersedia';
-        return "Title: {$this->getTitle()}, Author: {$this->getAuthor()},
-         Year: {$this->getYear()}, Format: {$this->format}, Status: {$status}";
+        return "Title: {$this->getTitle()}\nAuthor: {$this->getAuthor()}\nYear: {$this->getYear()}\nFormat: {$this->format}\nStatus: {$status}";
     }
 }
