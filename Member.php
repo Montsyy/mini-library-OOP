@@ -32,7 +32,7 @@ class Member {
     
     public function getInfoMember(): string {
         $borrowedBooksInfo = array_map(function($book) {
-            return $book->getinfobuku();
+            return "Title: {$book->getTitle()}";
         }, $this->borrowedBooks);
 
         $borrowedBooksList = implode("\n", $borrowedBooksInfo);
